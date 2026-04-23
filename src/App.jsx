@@ -119,7 +119,7 @@ function App() {
           </p>
         </div>
 
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         {/* Health Score Card */}
         <div style={{
           background: 'rgba(255, 255, 255, 0.95)',
