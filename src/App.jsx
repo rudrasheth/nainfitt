@@ -34,54 +34,101 @@ function App() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(to bottom right, #eff6ff, #ffffff, #faf5ff)',
-      padding: '2rem'
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      padding: '0'
     }}>
-      {/* Header */}
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        marginBottom: '2rem'
+      {/* Glass Nav Bar */}
+      <header style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        background: 'rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(10px)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
       }}>
-        <a 
-          href="https://medi-lingoooooo.vercel.app" 
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            color: '#2563eb',
-            textDecoration: 'none',
-            fontSize: '0.875rem',
-            marginBottom: '1rem'
-          }}
-        >
-          <ArrowLeft size={16} />
-          Back to MediLingo
-        </a>
-        <h1 style={{
-          fontSize: '2.5rem',
-          fontWeight: 'bold',
-          background: 'linear-gradient(to right, #2563eb, #9333ea)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          marginBottom: '0.5rem'
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '1rem 2rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between'
         }}>
-          Your Digital Health Twin
-        </h1>
-        <p style={{ color: '#6b7280' }}>
-          AI-powered insights from your health data, medications, nutrition, and lifestyle
-        </p>
-      </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '12px',
+              background: '#16a34a',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <span style={{ color: 'white', fontWeight: 'bold', fontSize: '1.25rem' }}>M</span>
+            </div>
+            <span style={{ fontWeight: 'bold', fontSize: '1.25rem', color: 'white' }}>MediLingo</span>
+          </div>
+          <a 
+            href="https://medi-lingoooooo.vercel.app" 
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              color: 'white',
+              textDecoration: 'none',
+              fontSize: '0.875rem',
+              padding: '0.5rem 1rem',
+              background: 'rgba(255, 255, 255, 0.2)',
+              borderRadius: '8px',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              transition: 'all 0.3s'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.3)'}
+            onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'}
+          >
+            <ArrowLeft size={16} />
+            Back to MediLingo
+          </a>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <div style={{
+        paddingTop: '5rem',
+        padding: '5rem 2rem 2rem 2rem'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          marginBottom: '2rem'
+        }}>
+          <h1 style={{
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            color: 'white',
+            marginBottom: '0.5rem',
+            textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}>
+            Your Digital Health Twin
+          </h1>
+          <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+            AI-powered insights from your health data, medications, nutrition, and lifestyle
+          </p>
+        </div>
 
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         {/* Health Score Card */}
         <div style={{
-          background: 'white',
-          border: '2px solid #dbeafe',
-          borderRadius: '0.5rem',
+          background: 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.3)',
+          borderRadius: '16px',
           padding: '1.5rem',
           marginBottom: '2rem',
-          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
         }}>
           <div style={{ marginBottom: '1rem' }}>
             <h2 style={{
@@ -90,9 +137,10 @@ function App() {
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
-              marginBottom: '0.25rem'
+              marginBottom: '0.25rem',
+              color: '#16a34a'
             }}>
-              <Activity size={24} color="#2563eb" />
+              <Activity size={24} color="#16a34a" />
               Overall Health Score
             </h2>
             <p style={{ fontSize: '0.875rem', color: '#6b7280' }}>
@@ -106,7 +154,7 @@ function App() {
             justifyContent: 'space-between',
             marginBottom: '1rem'
           }}>
-            <div style={{ fontSize: '4rem', fontWeight: 'bold', color: '#2563eb' }}>
+            <div style={{ fontSize: '4rem', fontWeight: 'bold', color: '#16a34a' }}>
               {healthScore}
             </div>
             <div style={{ textAlign: 'right' }}>
@@ -137,7 +185,7 @@ function App() {
             <div style={{
               width: `${healthScore}%`,
               height: '100%',
-              background: '#2563eb',
+              background: 'linear-gradient(90deg, #16a34a, #22c55e)',
               borderRadius: '9999px'
             }}></div>
           </div>
@@ -148,17 +196,18 @@ function App() {
             gap: '1rem'
           }}>
             {[
-              { icon: Pill, score: 85, label: 'Medication', bg: '#eff6ff', color: '#2563eb' },
-              { icon: Apple, score: 72, label: 'Nutrition', bg: '#f0fdf4', color: '#16a34a' },
-              { icon: Footprints, score: 65, label: 'Activity', bg: '#fff7ed', color: '#ea580c' },
-              { icon: Moon, score: 80, label: 'Sleep', bg: '#faf5ff', color: '#9333ea' },
-              { icon: Brain, score: 75, label: 'Mental', bg: '#fdf2f8', color: '#ec4899' }
+              { icon: Pill, score: 85, label: 'Medication', bg: '#dcfce7', color: '#16a34a' },
+              { icon: Apple, score: 72, label: 'Nutrition', bg: '#fef3c7', color: '#f59e0b' },
+              { icon: Footprints, score: 65, label: 'Activity', bg: '#dbeafe', color: '#3b82f6' },
+              { icon: Moon, score: 80, label: 'Sleep', bg: '#e0e7ff', color: '#6366f1' },
+              { icon: Brain, score: 75, label: 'Mental', bg: '#fce7f3', color: '#ec4899' }
             ].map((item, idx) => (
               <div key={idx} style={{
                 textAlign: 'center',
                 padding: '1rem',
                 background: item.bg,
-                borderRadius: '0.5rem'
+                borderRadius: '12px',
+                border: '1px solid rgba(255, 255, 255, 0.5)'
               }}>
                 <item.icon size={32} color={item.color} style={{ margin: '0 auto 0.5rem' }} />
                 <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{item.score}%</div>
@@ -170,11 +219,13 @@ function App() {
 
         {/* Live Vital Signs */}
         <div style={{
-          background: 'white',
-          border: '2px solid #f3e8ff',
-          borderRadius: '0.5rem',
+          background: 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.3)',
+          borderRadius: '16px',
           padding: '1.5rem',
-          marginBottom: '2rem'
+          marginBottom: '2rem',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
         }}>
           <div style={{ marginBottom: '1rem' }}>
             <h2 style={{
@@ -183,16 +234,19 @@ function App() {
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
-              marginBottom: '0.25rem'
+              marginBottom: '0.25rem',
+              color: '#16a34a'
             }}>
-              <Activity size={24} color="#9333ea" />
+              <Activity size={24} color="#16a34a" />
               Live Vital Signs
               <span style={{
                 marginLeft: '0.5rem',
                 fontSize: '0.75rem',
-                border: '1px solid #d1d5db',
+                border: '1px solid #16a34a',
+                color: '#16a34a',
                 padding: '0.25rem 0.5rem',
-                borderRadius: '0.25rem'
+                borderRadius: '0.25rem',
+                background: '#dcfce7'
               }}>
                 Real-time
               </span>
@@ -209,21 +263,23 @@ function App() {
           }}>
             <div style={{
               padding: '1rem',
-              background: 'linear-gradient(to bottom right, #fef2f2, #fce7f3)',
-              borderRadius: '0.5rem'
+              background: 'linear-gradient(135deg, #fef2f2, #fee2e2)',
+              borderRadius: '12px',
+              border: '1px solid rgba(255, 255, 255, 0.5)'
             }}>
               <Heart size={24} color="#ef4444" style={{ marginBottom: '0.5rem' }} />
               <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>
                 {vitalSigns.heartRate} bpm
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Heart Rate</div>
+              <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.5rem' }}>Heart Rate</div>
               <span style={{
                 display: 'inline-block',
-                marginTop: '0.5rem',
                 fontSize: '0.75rem',
-                border: '1px solid #d1d5db',
+                background: '#dcfce7',
+                color: '#16a34a',
                 padding: '0.25rem 0.5rem',
-                borderRadius: '0.25rem'
+                borderRadius: '0.25rem',
+                border: '1px solid #16a34a'
               }}>
                 Normal
               </span>
@@ -231,21 +287,23 @@ function App() {
 
             <div style={{
               padding: '1rem',
-              background: 'linear-gradient(to bottom right, #eff6ff, #ecfeff)',
-              borderRadius: '0.5rem'
+              background: 'linear-gradient(135deg, #eff6ff, #dbeafe)',
+              borderRadius: '12px',
+              border: '1px solid rgba(255, 255, 255, 0.5)'
             }}>
               <Droplets size={24} color="#3b82f6" style={{ marginBottom: '0.5rem' }} />
               <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>
                 {vitalSigns.bloodOxygen}%
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Blood Oxygen</div>
+              <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.5rem' }}>Blood Oxygen</div>
               <span style={{
                 display: 'inline-block',
-                marginTop: '0.5rem',
                 fontSize: '0.75rem',
-                border: '1px solid #d1d5db',
+                background: '#dcfce7',
+                color: '#16a34a',
                 padding: '0.25rem 0.5rem',
-                borderRadius: '0.25rem'
+                borderRadius: '0.25rem',
+                border: '1px solid #16a34a'
               }}>
                 Optimal
               </span>
@@ -253,21 +311,23 @@ function App() {
 
             <div style={{
               padding: '1rem',
-              background: 'linear-gradient(to bottom right, #faf5ff, #ede9fe)',
-              borderRadius: '0.5rem'
+              background: 'linear-gradient(135deg, #f5f3ff, #ede9fe)',
+              borderRadius: '12px',
+              border: '1px solid rgba(255, 255, 255, 0.5)'
             }}>
-              <Moon size={24} color="#9333ea" style={{ marginBottom: '0.5rem' }} />
+              <Moon size={24} color="#8b5cf6" style={{ marginBottom: '0.5rem' }} />
               <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>
                 {vitalSigns.sleepHours} hrs
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Sleep Duration</div>
+              <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.5rem' }}>Sleep Duration</div>
               <span style={{
                 display: 'inline-block',
-                marginTop: '0.5rem',
                 fontSize: '0.75rem',
-                border: '1px solid #d1d5db',
+                background: '#dcfce7',
+                color: '#16a34a',
                 padding: '0.25rem 0.5rem',
-                borderRadius: '0.25rem'
+                borderRadius: '0.25rem',
+                border: '1px solid #16a34a'
               }}>
                 Good
               </span>
@@ -275,21 +335,23 @@ function App() {
 
             <div style={{
               padding: '1rem',
-              background: 'linear-gradient(to bottom right, #f0fdf4, #dcfce7)',
-              borderRadius: '0.5rem'
+              background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
+              borderRadius: '12px',
+              border: '1px solid rgba(255, 255, 255, 0.5)'
             }}>
               <Footprints size={24} color="#16a34a" style={{ marginBottom: '0.5rem' }} />
               <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>
                 {vitalSigns.steps.toLocaleString()}
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Steps Today</div>
+              <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.5rem' }}>Steps Today</div>
               <span style={{
                 display: 'inline-block',
-                marginTop: '0.5rem',
                 fontSize: '0.75rem',
-                border: '1px solid #d1d5db',
+                background: '#dcfce7',
+                color: '#16a34a',
                 padding: '0.25rem 0.5rem',
-                borderRadius: '0.25rem'
+                borderRadius: '0.25rem',
+                border: '1px solid #16a34a'
               }}>
                 On Track
               </span>
@@ -299,11 +361,13 @@ function App() {
 
         {/* Predictive Health Analysis */}
         <div style={{
-          background: 'white',
-          border: '2px solid #d1fae5',
-          borderRadius: '0.5rem',
+          background: 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.3)',
+          borderRadius: '16px',
           padding: '1.5rem',
-          marginBottom: '2rem'
+          marginBottom: '2rem',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
         }}>
           <div style={{ marginBottom: '1rem' }}>
             <h2 style={{
@@ -312,7 +376,8 @@ function App() {
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
-              marginBottom: '0.25rem'
+              marginBottom: '0.25rem',
+              color: '#16a34a'
             }}>
               <Brain size={24} color="#16a34a" />
               AI-Powered Predictive Health Analysis
@@ -330,9 +395,9 @@ function App() {
             {predictiveHealth.map((item, idx) => (
               <div key={idx} style={{
                 padding: '1rem',
-                border: `2px solid ${item.color === 'green' ? '#86efac' : '#fde047'}`,
-                background: item.color === 'green' ? '#f0fdf4' : '#fefce8',
-                borderRadius: '0.5rem'
+                border: `2px solid ${item.color === 'green' ? '#16a34a' : '#f59e0b'}`,
+                background: item.color === 'green' ? '#dcfce7' : '#fef3c7',
+                borderRadius: '12px'
               }}>
                 <div style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '0.5rem' }}>
                   {item.category}
@@ -343,7 +408,7 @@ function App() {
                 <div style={{
                   fontSize: '0.875rem',
                   fontWeight: '500',
-                  color: item.color === 'green' ? '#15803d' : '#a16207'
+                  color: item.color === 'green' ? '#15803d' : '#d97706'
                 }}>
                   Risk: {item.risk}
                 </div>
@@ -354,10 +419,12 @@ function App() {
 
         {/* Nutrition Intelligence */}
         <div style={{
-          background: 'white',
-          border: '2px solid #fed7aa',
-          borderRadius: '0.5rem',
-          padding: '1.5rem'
+          background: 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.3)',
+          borderRadius: '16px',
+          padding: '1.5rem',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
         }}>
           <div style={{ marginBottom: '1rem' }}>
             <h2 style={{
@@ -366,9 +433,10 @@ function App() {
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
-              marginBottom: '0.25rem'
+              marginBottom: '0.25rem',
+              color: '#16a34a'
             }}>
-              <Apple size={24} color="#ea580c" />
+              <Apple size={24} color="#16a34a" />
               Nutrition Intelligence
             </h2>
             <p style={{ fontSize: '0.875rem', color: '#6b7280' }}>
@@ -384,28 +452,28 @@ function App() {
             <div style={{
               padding: '1rem',
               background: '#fef2f2',
-              border: '1px solid #fecaca',
-              borderRadius: '0.5rem'
+              border: '2px solid #fca5a5',
+              borderRadius: '12px'
             }}>
               <h3 style={{
                 fontWeight: '600',
-                color: '#b91c1c',
+                color: '#dc2626',
                 marginBottom: '0.5rem'
               }}>
                 ⚠️ Foods to Avoid
               </h3>
-              <ul style={{ fontSize: '0.875rem', lineHeight: '1.75' }}>
-                <li>• Grapefruit (interacts with statins)</li>
-                <li>• Alcohol (with pain medications)</li>
-                <li>• High-sodium foods</li>
+              <ul style={{ fontSize: '0.875rem', lineHeight: '1.75', paddingLeft: '1rem' }}>
+                <li>Grapefruit (interacts with statins)</li>
+                <li>Alcohol (with pain medications)</li>
+                <li>High-sodium foods</li>
               </ul>
             </div>
 
             <div style={{
               padding: '1rem',
-              background: '#f0fdf4',
-              border: '1px solid #bbf7d0',
-              borderRadius: '0.5rem'
+              background: '#dcfce7',
+              border: '2px solid #16a34a',
+              borderRadius: '12px'
             }}>
               <h3 style={{
                 fontWeight: '600',
@@ -414,10 +482,10 @@ function App() {
               }}>
                 ✓ Recommended Nutrients
               </h3>
-              <ul style={{ fontSize: '0.875rem', lineHeight: '1.75' }}>
-                <li>• Omega-3 fatty acids</li>
-                <li>• Vitamin D supplements</li>
-                <li>• High-fiber foods</li>
+              <ul style={{ fontSize: '0.875rem', lineHeight: '1.75', paddingLeft: '1rem' }}>
+                <li>Omega-3 fatty acids</li>
+                <li>Vitamin D supplements</li>
+                <li>High-fiber foods</li>
               </ul>
             </div>
           </div>
